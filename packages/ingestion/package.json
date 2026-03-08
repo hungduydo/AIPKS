@@ -1,0 +1,36 @@
+{
+  "name": "@aipks/ingestion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@aipks/core": "workspace:*",
+    "@aipks/vector-store": "workspace:*",
+    "@langchain/textsplitters": "^0.1.0",
+    "chokidar": "^4.0.0",
+    "gray-matter": "^4.0.0",
+    "openai": "^4.0.0",
+    "remark": "^15.0.0",
+    "strip-markdown": "^6.0.0",
+    "tiktoken": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.7.0"
+  }
+}

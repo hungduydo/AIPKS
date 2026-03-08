@@ -1,0 +1,32 @@
+{
+  "name": "@aipks/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "aipks": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@aipks/ai-engine": "workspace:*",
+    "@aipks/core": "workspace:*",
+    "@aipks/ingestion": "workspace:*",
+    "@aipks/vector-store": "workspace:*",
+    "chalk": "^5.0.0",
+    "cli-table3": "^0.6.0",
+    "commander": "^13.0.0",
+    "dotenv": "^16.0.0",
+    "ora": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.7.0"
+  }
+}

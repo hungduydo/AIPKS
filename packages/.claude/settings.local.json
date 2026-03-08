@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for pkg in core ingestion vector-store ai-engine cli)",
+      "Bash(do echo \"=== $pkg ===\")",
+      "Read(//Users/user/Documents/workspace/AIPKS/packages/$pkg/**)",
+      "Bash(done)",
+      "Bash(for pkg in api core ingestion vector-store ai-engine cli)",
+      "Bash(do echo \"=== packages/$pkg/src ===\")",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm:*)",
+      "Bash(ls:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm list:*)",
+      "Bash(grep:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)"
+    ]
+  }
+}

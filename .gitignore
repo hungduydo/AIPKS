@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.turbo/
+*.tsbuildinfo
+
+# Runtime data (vector index, SQLite, caches)
+data/
+
+# Secrets
+.env
+.env.local
+
+# OS
+.DS_Store

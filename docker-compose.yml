@@ -1,0 +1,52 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: aipks-api
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - BRAIN_FOLDER=/app/brain
+      - VECTOR_STORE_PATH=/app/data/vector-store
+      - DB_PATH=/app/data/db/aipks.sqlite
+      - CACHE_PATH=/app/data/cache
+      - API_PORT=3001
+    volumes:
+      # Mount your local brain vault into the container (source of truth)
+      - ./brain:/app/brain
+      # Persist the vector index and SQLite DB across restarts
+      - aipks_data:/app/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3001/api/status').then(r => r.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+      args:
+        # API is accessed from the browser, so use the public-facing host
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3001}
+    container_name: aipks-web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      # For server-side fetching inside Docker, use the service name
+      - API_URL=http://api:3001
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  aipks_data:
+    name: aipks_data

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(pnpm:*)",
+      "Bash(ls:*)",
+      "Bash(npm rebuild:*)",
+      "Bash(/Users/user/Documents/workspace/AIPKS/README.md:*)",
+      "Bash(docker run:*)",
+      "Bash(lsof:*)",
+      "Bash(grep:*)",
+      "Bash(npx playwright:*)",
+      "Bash(npx shadcn@latest:*)",
+      "Bash(kill 61207:*)"
+    ]
+  }
+}
