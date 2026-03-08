@@ -40,6 +40,8 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - run: pnpm build
+
       - run: pnpm --filter @aipks/api test
 
   e2e-tests:
