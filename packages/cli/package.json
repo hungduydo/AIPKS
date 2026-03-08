@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@aipks/ai-engine": "workspace:*",
+    "@aipks/api": "workspace:*",
     "@aipks/core": "workspace:*",
     "@aipks/ingestion": "workspace:*",
     "@aipks/vector-store": "workspace:*",

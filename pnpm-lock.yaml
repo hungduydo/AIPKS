@@ -109,6 +109,9 @@ importers:
       '@aipks/ai-engine':
         specifier: workspace:*
         version: link:../ai-engine
+      '@aipks/api':
+        specifier: workspace:*
+        version: link:../api
       '@aipks/core':
         specifier: workspace:*
         version: link:../core

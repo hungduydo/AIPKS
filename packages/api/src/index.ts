@@ -3,6 +3,10 @@ import { loadConfig, logger } from '@aipks/core'
 import { getContainer } from './container.js'
 import { createServer } from './server.js'
 
+export { getContainer, resetContainer } from './container.js'
+export { createServer } from './server.js'
+export type { Container } from './container.js'
+
 async function main() {
   const config = loadConfig()
   const container = getContainer()
